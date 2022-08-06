@@ -21,7 +21,7 @@ I downloaded the script and set permissions to executable.
 
 chmod 744 <shell>.py
 
-Next step was to open up at netcat listner:
+Next step was to open up a netcat listner:
 
 nc -lvnp <port>
 
