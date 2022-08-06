@@ -1,17 +1,19 @@
 Hello,
+
 This is a writeup for the Agent T room: https://tryhackme.com/room/agentt
 The description for this box indicates is a vulnerable webserver.
 Once starting the box, I initially ran a rustscan and gobuster against it.
+The rustscan showed that http service over port 80 was the only open port.
 The gobuster revealed that there were not other pages to attack and the focus should be on the mainpage.
 I proceeded to pull the header of the website with:
 
 curl -I <targetbox>
 
-This revealed the website i using php 8.1.0-dev.
+This revealed the website is using php 8.1.0-dev.
 
 A quick search on exploit-db.com shows there is a python script to run to get an easy reverse shell.
 
-I downloaded to shell and set permissions to executable.
+I downloaded the script and set permissions to executable.
 chmod 744 <shell>.py
 
 Next step was to open up at netcat listner:
